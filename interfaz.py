@@ -3,6 +3,8 @@ from tkinter import messagebox, filedialog, ttk
 from funcional import obtener_palabras, contar_frecuencia, palabras_frecuentes, resumen_basico
 from logico import buscar_patron, cumple_regla_vocal, evaluar_calidad_texto
 from utils import graficar_frecuencia, guardar_resultado
+import numpy as np
+from analisis_avanzando import obtener_estadisticas, analizar_diversidad_lexical
 import json
 
 def iniciar_interfaz():
@@ -31,7 +33,18 @@ def iniciar_interfaz():
         
         salida.insert(tk.END, "=== FRECUENCIAS ===\n")
         salida.insert(tk.END, f"{frecuencias}\n\n")
-        
+        # --- ANÁLISIS AVANZADO ---
+        stats = obtener_estadisticas(frecuencias)
+        diversidad = analizar_diversidad_lexical(texto)
+
+        salida.insert(tk.END, "\n=== ESTADÍSTICAS AVANZADAS ===\n")
+        for clave, valor in stats.items():
+            salida.insert(tk.END, f"{clave}: {valor}\n")
+
+        salida.insert(tk.END, "\n=== DIVERSIDAD LÉXICA (Avanzada) ===\n")
+        for clave, valor in diversidad.items():
+            salida.insert(tk.END, f"{clave}: {valor}\n")
+
         salida.insert(tk.END, "=== TOP 10 PALABRAS ===\n")
         for i, (palabra, freq) in enumerate(top, 1):
             salida.insert(tk.END, f"{i}. {palabra}: {freq}\n")
@@ -68,7 +81,7 @@ def iniciar_interfaz():
             "evaluacion_calidad": evaluacion_calidad,
             "resumen": resumen
         })
-
+    
     def mostrar_grafico():
         texto = entrada.get("1.0", tk.END).strip()
         if not texto:
@@ -137,7 +150,7 @@ def iniciar_interfaz():
     tk.Label(marco_busqueda, text="Buscar palabra clave:", font=("Segoe UI", 10), bg="#f0f0f0").pack(side=tk.LEFT)
     patron_entry = tk.Entry(marco_busqueda, width=30, font=("Segoe UI", 10))
     patron_entry.pack(side=tk.LEFT, padx=5)
-
+    
     # Marco de botones
     marco_botones = tk.Frame(marco_principal, bg="#f0f0f0")
     marco_botones.pack(fill=tk.X, pady=10)
@@ -174,7 +187,6 @@ def iniciar_interfaz():
         padx=15,
         pady=8
     ).pack(side=tk.LEFT, padx=5)
-    
     tk.Button(
         marco_botones, 
         text="Limpiar", 
