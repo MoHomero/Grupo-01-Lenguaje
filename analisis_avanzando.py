@@ -4,10 +4,8 @@ from funcional import contar_frecuencia, obtener_palabras
 
 def obtener_estadisticas(frecuencias):
     valores = np.array(list(frecuencias.values()))
-    
     if len(valores) == 0:
-        return {}
-    
+        return {} 
     stats = {
         "total_palabras_unicas": len(frecuencias),
         "total_palabras": int(np.sum(valores)),
@@ -28,12 +26,10 @@ def crear_dataframe_frecuencias(frecuencias):
         "palabra": list(frecuencias.keys()),
         "frecuencia": list(frecuencias.values())
     })
-    
     df = df.sort_values("frecuencia", ascending=False).reset_index(drop=True)
     df["frecuencia_relativa"] = df["frecuencia"] / df["frecuencia"].sum()
     df["frecuencia_acumulada"] = df["frecuencia"].cumsum()
     df["rango"] = range(1, len(df) + 1)
-    
     return df
 """te toca a ti"""
 def analizar_diversidad_lexical(texto):
