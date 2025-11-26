@@ -1,0 +1,102 @@
+{
+    "frecuencia": {
+        "sol": 1,
+        "mañana": 2,
+        "filtraba": 1,
+        "luz": 1,
+        "dorada": 1,
+        "ventana": 1,
+        "llenando": 1,
+        "habitación": 1,
+        "calidez": 1,
+        "reconfortante": 1,
+        "dulce": 1,
+        "aroma": 5,
+        "café": 1,
+        "recién": 1,
+        "hecho": 1,
+        "mezclaba": 1,
+        "tostada": 1,
+        "mermelada": 1,
+        "creando": 1,
+        "desayuno": 1,
+        "digno": 1,
+        "reyes": 1,
+        "jazmín": 1,
+        "entraba": 1,
+        "jardín": 1,
+        "competía": 1,
+        "captar": 1,
+        "atención": 1,
+        "mientras": 1,
+        "ligero": 1,
+        "tierra": 1,
+        "mojada": 1,
+        "después": 1,
+        "rocío": 1,
+        "noche": 1,
+        "completaba": 1,
+        "sinfonía": 1,
+        "cada": 1,
+        "promesa": 1,
+        "día": 1,
+        "maravilloso": 1,
+        "recordatorio": 1,
+        "pequeños": 1,
+        "placeres": 1,
+        "hacen": 1,
+        "vida": 1,
+        "feliz": 1
+    },
+    "palabras_top": [
+        [
+            "aroma",
+            5
+        ],
+        [
+            "mañana",
+            2
+        ],
+        [
+            "sol",
+            1
+        ],
+        [
+            "filtraba",
+            1
+        ],
+        [
+            "luz",
+            1
+        ],
+        [
+            "dorada",
+            1
+        ],
+        [
+            "ventana",
+            1
+        ],
+        [
+            "llenando",
+            1
+        ],
+        [
+            "habitación",
+            1
+        ],
+        [
+            "calidez",
+            1
+        ]
+    ],
+    "patron": "aroma",
+    "aparece": true,
+    "tiene_vocales": true,
+    "resumen": [
+        "El sol de la mañana filtraba su luz dorada por la ventana, llenando la habitación de una calidez reconfortante",
+        "El dulce aroma del café recién hecho se mezclaba con el aroma a tostadas con mermelada, creando un desayuno digno de reyes",
+        "Un aroma a jazmín, que entraba desde el jardín, competía por captar la atención, mientras el ligero aroma a tierra mojada después del rocío de la noche completaba la sinfonía de la mañana",
+        "Cada aroma era una promesa de un día maravilloso, un recordatorio de los pequeños placeres que hacen la vida feliz"
+    ]
+}
