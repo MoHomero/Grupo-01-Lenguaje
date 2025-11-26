@@ -42,32 +42,11 @@ def resumen_basico(texto, top_palabras):
 
 # 🔹 Obtener n-gramas
 def obtener_n_gramas(palabras, n=2):
-    """
-    Extrae n-gramas del texto (secuencias de n palabras)
-    Utiliza programación funcional con reduce
-    
-    Args:
-        palabras (list): Lista de palabras
-        n (int): Tamaño del n-grama
-    
-    Returns:
-        dict: Frecuencia de n-gramas
-    """
     n_gramas = [tuple(palabras[i:i+n]) for i in range(len(palabras) - n + 1)]
     return reduce(lambda acc, ng: {**acc, ng: acc.get(ng, 0) + 1}, n_gramas, {})
 
 # 🔹 Calcular densidad de palabras clave
 def calcular_densidad_palabra(texto, palabra):
-    """
-    Calcula la densidad relativa de una palabra en el texto
-    
-    Args:
-        texto (str): Texto a analizar
-        palabra (str): Palabra a buscar
-    
-    Returns:
-        float: Densidad entre 0 y 1
-    """
     palabras = obtener_palabras(texto)
     if not palabras:
         return 0.0
@@ -76,16 +55,6 @@ def calcular_densidad_palabra(texto, palabra):
 
 # 🔹 Índice de Flesch-Kincaid
 def indice_flesch_kincaid(palabras, oraciones):
-    """
-    Calcula índice de legibilidad Flesch-Kincaid
-    
-    Args:
-        palabras (list): Lista de palabras
-        oraciones (list): Lista de oraciones
-    
-    Returns:
-        float: Índice de legibilidad (0-100)
-    """
     if not palabras or not oraciones:
         return 0.0
     
@@ -99,7 +68,6 @@ def indice_flesch_kincaid(palabras, oraciones):
     return max(0, min(100, resultado))
 
 def contar_silabas(palabra):
-    """Cuenta aproximadamente las sílabas de una palabra"""
     palabra = palabra.lower()
     vocales = "aeiouáéíóú"
     silabas = 0

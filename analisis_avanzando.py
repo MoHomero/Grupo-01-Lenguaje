@@ -1,22 +1,8 @@
-"""
-Módulo de análisis avanzado con NumPy y Pandas
-Implementa análisis estadístico sobre datos de texto
-"""
-
 import numpy as np
 import pandas as pd
 from funcional import contar_frecuencia, obtener_palabras
 
 def obtener_estadisticas(frecuencias):
-    """
-    Calcula estadísticas descriptivas sobre frecuencias de palabras
-    
-    Args:
-        frecuencias (dict): Diccionario de palabra -> frecuencia
-    
-    Returns:
-        dict: Estadísticas completas
-    """
     valores = np.array(list(frecuencias.values()))
     
     if len(valores) == 0:
@@ -34,20 +20,10 @@ def obtener_estadisticas(frecuencias):
         "percentil_25": float(np.percentile(valores, 25)),
         "percentil_50": float(np.percentile(valores, 50)),
         "percentil_75": float(np.percentile(valores, 75)),
-    }
-    
+    }    
     return stats
 
 def crear_dataframe_frecuencias(frecuencias):
-    """
-    Crea un DataFrame de Pandas con análisis de frecuencias
-    
-    Args:
-        frecuencias (dict): Diccionario de palabra -> frecuencia
-    
-    Returns:
-        pd.DataFrame: DataFrame con análisis
-    """
     df = pd.DataFrame({
         "palabra": list(frecuencias.keys()),
         "frecuencia": list(frecuencias.values())
@@ -61,15 +37,6 @@ def crear_dataframe_frecuencias(frecuencias):
     return df
 """te toca a ti"""
 def analizar_diversidad_lexical(texto):
-    """
-    Calcula índices de diversidad léxica del texto
-    
-    Args:
-        texto (str): Texto a analizar
-    
-    Returns:
-        dict: Métricas de diversidad
-    """
     palabras = obtener_palabras(texto)
     palabras_unicas = len(set(palabras))
     total_palabras = len(palabras)
@@ -90,16 +57,6 @@ def analizar_diversidad_lexical(texto):
     }
 
 def comparar_textos(texto1, texto2):
-    """
-    Compara características entre dos textos
-    
-    Args:
-        texto1 (str): Primer texto
-        texto2 (str): Segundo texto
-    
-    Returns:
-        dict: Análisis comparativo
-    """
     palabras1 = obtener_palabras(texto1)
     palabras2 = obtener_palabras(texto2)
     
@@ -127,16 +84,6 @@ def comparar_textos(texto1, texto2):
     }
 
 def cargar_y_analizar_csv(archivo, columna_texto="texto"):
-    """
-    Carga un CSV y realiza análisis sobre una columna de texto
-    
-    Args:
-        archivo (str): Ruta del archivo CSV
-        columna_texto (str): Nombre de la columna a analizar
-    
-    Returns:
-        dict: Análisis completo del CSV
-    """
     df = pd.read_csv(archivo)
     
     if columna_texto not in df.columns:
